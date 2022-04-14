@@ -12,6 +12,23 @@ library(readr)   # read/write files
 
 #--- Basic API Usage ---#
 
+tweets <- 
+  search_tweets('#breakingnews')
+View(tweets)
+  
+tweets <-
+  search_tweets('#breakingnews',
+                n = 2000)
+tweets <-
+  search_tweets('#breakingnews OR #cnn',
+                n = 2000)
+tweets <-
+  search_tweets('#foxnews OR #cnn',
+                n = 100,
+                lang = "en")
+
+
+
 # --- Filtering the Search --- #
 
 # --- For network Visualization --- #
