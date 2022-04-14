@@ -27,11 +27,28 @@ tweets <-
                 n = 100,
                 lang = "en")
 
+geo_us <- lookup_coords("US")
+geo_us2 <- read_rds("data/geo_us.rds")
+
+
+  
 
 
 # --- Filtering the Search --- #
 
+tweets_us <- search_tweets('#foxnews OR #cnn',
+                           n = 1500,
+                           lang = "en",
+                           geo = geo_us2)
+
 # --- For network Visualization --- #
 
-# --- Saving the data --- #
+tweets_final <- 
+  search_tweets(
+    '#foxnews OR #cnn',
+    n = 5000,
+    lang = "en"
+  )
 
+# --- Saving the data --- #
+write_rds(tweets_final,"data/fox_cnn.Rds")
